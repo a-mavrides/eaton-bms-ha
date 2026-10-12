@@ -1,0 +1,14 @@
+{
+  "domain": "eaton_bms",
+  "name": "Eaton / Scantronic Local BMS",
+  "codeowners": [
+    "@a-mavrides"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/a-mavrides/eaton-bms-ha",
+  "integration_type": "hub",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/a-mavrides/eaton-bms-ha/issues",
+  "requirements": [],
+  "version": "0.3.0"
+}

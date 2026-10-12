@@ -1,0 +1,76 @@
+{
+  "title": "Eaton / Scantronic Local BMS",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect your Eaton alarm locally",
+        "description": "Leave installer mode. Enter your panel address and the BMS PIN/password. The next step discovers the panel certificate for confirmation before credentials are sent. Arm/disarm asks for a normal alarm user PIN.",
+        "data": {
+          "host": "Panel IP address",
+          "port": "HTTPS port",
+          "bms_pin": "BMS PIN",
+          "password": "BMS password"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Update BMS credentials",
+        "description": "Enter the current BMS credentials for the same panel.",
+        "data": {
+          "host": "Panel IP address",
+          "port": "HTTPS port",
+          "bms_pin": "BMS PIN",
+          "password": "BMS password"
+        }
+      },
+      "certificate": {
+        "title": "Confirm this panel certificate",
+        "description": "Panel: {host}\n\nCertificate SHA-256:\n{fingerprint}\n\nCompare this with the certificate shown in your working local panel browser. Confirm once to trust this certificate. No credentials have been sent to the panel yet. Future connections reject a changed certificate.",
+        "data": {
+          "confirm_certificate": "I have checked and trust this panel certificate"
+        }
+      },
+      "reconfigure": {
+        "title": "Update panel connection",
+        "description": "Leave installer mode. Enter your panel address and the BMS PIN/password. The next step discovers the panel certificate for confirmation before credentials are sent. Arm/disarm asks for a normal alarm user PIN.",
+        "data": {
+          "host": "Panel IP address",
+          "port": "HTTPS port",
+          "bms_pin": "BMS PIN",
+          "password": "BMS password"
+        }
+      }
+    },
+    "error": {
+      "invalid_host": "Enter a local IP address or hostname, without https:// or a path.",
+      "certificate_mismatch": "The panel's certificate does not match this fingerprint. Confirm the current certificate in your working browser.",
+      "invalid_auth": "BMS credentials rejected. Check the BMS PIN and BMS password and leave installer mode.",
+      "cannot_connect": "Cannot read the local BMS API. Check the address, port and panel availability.",
+      "same_panel_required": "Keep the original panel address and port when updating credentials.",
+      "certificate_not_confirmed": "Confirm the panel certificate to continue."
+    },
+    "abort": {
+      "already_configured": "This panel is already configured.",
+      "reauth_successful": "BMS credentials updated.",
+      "reconfigure_successful": "Panel connection updated."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Choose panel part-set mappings",
+        "description": "Away uses full set. Home and Night use the part sets already configured on your alarm. This does not change which zones belong to a part set.",
+        "data": {
+          "home_mode": "Home mode",
+          "night_mode": "Night mode"
+        }
+      },
+      "zones": {
+        "title": "Zone sensor types",
+        "description": "Choose how each zone appears in Home Assistant.\n\n{zones}\n\nThis changes the sensor display type only; it does not reprogram the alarm."
+      }
+    },
+    "error": {
+      "different_modes_required": "Choose different part sets for Home and Night."
+    }
+  }
+}

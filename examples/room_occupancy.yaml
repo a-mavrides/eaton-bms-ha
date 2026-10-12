@@ -1,0 +1,13 @@
+# Optional example. Merge into your existing template: configuration.
+# Replace BOTH uses of binary_sensor.your_room_pir with the actual PIR entity.
+# Each activation restarts the off delay. An unavailable PIR makes this helper
+# unavailable instead of declaring the room empty. This is not proof of occupancy.
+template:
+  - binary_sensor:
+      - name: "Room recent movement"
+        unique_id: eaton_room_recent_movement_example
+        device_class: occupancy
+        state: "{{ is_state('binary_sensor.your_room_pir', 'on') }}"
+        availability: "{{ states('binary_sensor.your_room_pir') in ['on', 'off'] }}"
+        delay_off:
+          minutes: 10
